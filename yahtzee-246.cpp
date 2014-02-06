@@ -8,12 +8,16 @@
  * Yahtzee
  *
  * Starter code by Paul Wilkins
- * Last Modified: 02/04/2014
+ * Last Modified: 02/06/2014 6:05am
+ *
+ * Edit: Narayana Emery
+ **  Changed Dice to array**
+ *
  *
  *******************************/
 
 // TODO: switch to using arrays for scores
-// TODO switch to using array for dice
+// TODO switch to using array for dice: Narayana Emery
 // TODO: add yahtzee bonus score
 // TODO: implement scoring functions (see switch statement, line 125)
 // TODO: make ask reroll accept lowercase letters
@@ -21,7 +25,7 @@
 
 using namespace std;
 
-void printRoll(int n1, int n2, int n3, int n4, int n5);
+void printRoll(int dice[]);
 bool askReroll(int n);
 void printSeparator();
 void printScore(int onesScore, int twosScore, int threesScore, int foursScore,
@@ -33,7 +37,7 @@ int getScoreOption(int onesScore, int twosScore, int threesScore, int foursScore
                    int fivesScore, int sixesScore, int threeOfAKind,
                    int fourOfAKind, int fullHouse, int smallStraight,
                    int largeStraight, int yahtzee, int chance);
-int tabulateDice(int n, int d1, int d2, int d3, int d4, int d5);
+int tabulateDice(int n, int dice[]);
 
 const int NUM_CATEGORIES = 13;
 const int SIDES = 6;
@@ -45,7 +49,7 @@ enum Category { ONES = 1, TWOS, THREES, FOURS, FIVES, SIXES, THREE_OF_A_KIND,
 int main()
 {
 
-    int die1, die2, die3, die4, die5;
+    int die[5];
     bool redo1, redo2, redo3, redo4, redo5;
 
     int ones, twos, threes, fours, fives, sixes;
@@ -71,13 +75,9 @@ int main()
     {
         int round = 1;
         ones = twos = threes = fours = fives = sixes = 0;
-        die1 = rand() % SIDES;
-        die2 = rand() % SIDES;
-        die3 = rand() % SIDES;
-        die4 = rand() % SIDES;
-        die5 = rand() % SIDES;
+		for ( int i = 0; i < 5; i++ ) die[i] = rand() % SIDES;
 
-        printRoll(die1, die2, die3, die4, die5);
+        printRoll(die);
 
         do
         {
@@ -89,35 +89,35 @@ int main()
 
             if (redo1)
             {
-                die1 = rand() % SIDES;
+                die[0] = rand() % SIDES;
             }
             if (redo2)
             {
-                die2 = rand() % SIDES;
+                die[1] = rand() % SIDES;
             }
             if (redo3)
             {
-                die3 = rand() % SIDES;
+                die[2] = rand() % SIDES;
             }
             if (redo4)
             {
-                die4 = rand() % SIDES;
+                die[3] = rand() % SIDES;
             }
             if (redo5)
             {
-                die5 = rand() % SIDES;
+                die[4] = rand() % SIDES;
             }
 
-            printRoll(die1, die2, die3, die4, die5);
+            printRoll(die);
             round++;
         } while ((redo1 || redo2 || redo3 || redo4 || redo5) && round < 3);
 
-        ones = tabulateDice(1, die1, die2, die3, die4, die5);
-        twos = tabulateDice(2, die1, die2, die3, die4, die5);
-        threes = tabulateDice(3, die1, die2, die3, die4, die5);
-        fours = tabulateDice(4, die1, die2, die3, die4, die5);
-        fives = tabulateDice(5, die1, die2, die3, die4, die5);
-        sixes = tabulateDice(6, die1, die2, die3, die4, die5);
+        ones = tabulateDice(1, die);
+        twos = tabulateDice(2, die);
+        threes = tabulateDice(3, die);
+        fours = tabulateDice(4, die);
+        fives = tabulateDice(5, die);
+        sixes = tabulateDice(6, die);
 
         int scoreOption = getScoreOption(onesScore, twosScore, threesScore, foursScore,
                                          fivesScore, sixesScore, threeOfAKind,
@@ -180,11 +180,11 @@ int main()
  * with blank lines before and after the print-out.
  *
  *********************************************************/
-void printRoll(int n1, int n2, int n3, int n4, int n5)
+void printRoll(int dice[])
 {
     cout << endl;
     cout << "Your roll is:" << endl;
-    cout << n1 << " " << n2 << " " << n3 << " " << n4 << " " << n5 << endl;
+	cout << dice[0] << " " << dice[1] << " " << dice[2] << " " << dice[3] << " " << dice[4] << endl;
     cout << endl;
 }
 
@@ -198,7 +198,7 @@ void printRoll(int n1, int n2, int n3, int n4, int n5)
  * the die should be rerolled, false otherwise.  The integer
  * argument is used only for instruction display, this function
  * does not actually reroll any dice.  Responses accepted are
- * 'Y' and 'N'.
+ * 'Y' 'y' and 'N' 'n'.
  *
  *********************************************************/
 bool askReroll(int n)
@@ -208,6 +208,9 @@ bool askReroll(int n)
     {
         cout << "Would you like to reroll die " << n << "? (Y/N) ";
         cin >> ch;
+
+        if(n > 97) n -= 32; //Safe for if the user inputs a lower case, will change to uppercase
+
         switch (ch)
         {
             case 'Y':
@@ -402,13 +405,10 @@ int getScoreOption(int onesScore, int twosScore, int threesScore, int foursScore
  * which show the value n.
  *
  ********************************/
-int tabulateDice(int n, int d1, int d2, int d3, int d4, int d5)
+int tabulateDice(int n, int dice[])
 {
     int ans = 0;
-    if (d1 == n) ans++;
-    if (d2 == n) ans++;
-    if (d3 == n) ans++;
-    if (d4 == n) ans++;
-    if (d5 == n) ans++;
+	for ( int i = 0; i < 5; i++ )
+		if ( dice[i] == n ) ans++;
     return ans;
 }
