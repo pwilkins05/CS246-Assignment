@@ -2,5 +2,6 @@
 #define MAIN_H_INCLUDED
 
 #include "numeral.h"
+#include <iostream>
 
 #endif // MAIN_H_INCLUDED
