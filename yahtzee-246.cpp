@@ -8,19 +8,23 @@
  * Yahtzee
  *
  * Starter code by Paul Wilkins
- * Last Modified: 02/06/2014 6:05am
+ * Last Modified: 02/09/2014 1:20pm
  *
  * Edit: Narayana Emery
  **  Changed Dice to array**
  *
- *
+ * Edit: Nalani Sanderson
+ **  Added function rollDie to fix
+ **     bug (dice not displaying
+ **     correct value)
  *******************************/
 
 // TODO: switch to using arrays for scores
 // TODO switch to using array for dice: Narayana Emery
 // TODO: add yahtzee bonus score
 // TODO: implement scoring functions (see switch statement, line 125)
-// BUG: dice not holding correct values
+// BUG: if a char is typed as input for "Which category would you like to score this as?"
+//          enters an infinite loop (function getScoreOption)
 
 using namespace std;
 
@@ -37,6 +41,7 @@ int getScoreOption(int onesScore, int twosScore, int threesScore, int foursScore
                    int fourOfAKind, int fullHouse, int smallStraight,
                    int largeStraight, int yahtzee, int chance);
 int tabulateDice(int n, int dice[]);
+int rollDie();
 
 const int NUM_CATEGORIES = 13;
 const int SIDES = 6;
@@ -74,7 +79,7 @@ int main()
     {
         int round = 1;
         ones = twos = threes = fours = fives = sixes = 0;
-		for ( int i = 0; i < 5; i++ ) die[i] = rand() % SIDES;
+		for ( int i = 0; i < 5; i++ ) die[i] = rollDie();
 
         printRoll(die);
 
@@ -88,25 +93,24 @@ int main()
 
             if (redo1)
             {
-                die[0] = rand() % SIDES;
+                die[0] = rollDie();
             }
             if (redo2)
             {
-                die[1] = rand() % SIDES;
+                die[1] = rollDie();
             }
             if (redo3)
             {
-                die[2] = rand() % SIDES;
+                die[2] = rollDie();
             }
             if (redo4)
             {
-                die[3] = rand() % SIDES;
+                die[3] = rollDie();
             }
             if (redo5)
             {
-                die[4] = rand() % SIDES;
+                die[4] = rollDie();
             }
-
             printRoll(die);
             round++;
         } while ((redo1 || redo2 || redo3 || redo4 || redo5) && round < 3);
@@ -192,7 +196,7 @@ void printRoll(int dice[])
  * askReroll
  * ------------------
  * This function ask the user if they'd like to reroll one
- * one of the dice.  The function takes an integer which is
+ * of the dice.  The function takes an integer which is
  * the number of the die being rerolled, and returns true if
  * the die should be rerolled, false otherwise.  The integer
  * argument is used only for instruction display, this function
@@ -407,4 +411,16 @@ int tabulateDice(int n, int dice[])
 	for ( int i = 0; i < 5; i++ )
 		if ( dice[i] == n ) ans++;
     return ans;
+}
+
+/********************************
+*
+* rollDie
+* ---------------------
+* This function sets the die value
+*
+********************************/
+int rollDie()
+{
+    return rand() % SIDES +1;
 }
