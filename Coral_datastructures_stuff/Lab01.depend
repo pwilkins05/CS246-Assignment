@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1372204937 source:c:\users\owner\documents\lab8\lab01\array.cpp
+	"Array.h"
+	<iostream>
+
+1372204029 c:\users\owner\documents\lab8\lab01\array.h
+	<iostream>
+
+1372202855 source:c:\users\owner\documents\lab8\lab01\main.cpp
+	"Array.h"
+	<iostream>
+
+1373248968 source:d:\data_structures\lab01\array.cpp
+	"Array.h"
+	<iostream>
+
+1373248659 d:\data_structures\lab01\array.h
+	<iostream>
+
+1373323408 source:d:\data_structures\lab01\main.cpp
+	"Array.h"
+	<iostream>
+
