@@ -451,9 +451,8 @@ int rollDie()
 {
     return rand() % SIDES +1;
 }
-
-
-/*******************************
- * This is a very important message
- * About Nothing at all! Don't Learn to much!
- ******************************/
+/*********************
+ * 
+ * Comment by Nathan Johnson for GIT Assignment
+ * 
+ * *******************
