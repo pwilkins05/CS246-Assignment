@@ -17,9 +17,14 @@
  **  Added function rollDie to fix
  **     bug (dice not displaying
  **     correct value)
- *Edit:Coral Breding
+ *
+ * Edit:Coral Breding
  ** the game was on an endless loop of play
- * added a exit condition 2/10/14
+ ** added a exit condition 2/10/14
+ *
+ * Edit: Nathan Healea Modified (12:53 2/10/2014)
+ ** Fix the exit condition that Coral created
+ **
  *******************************/
 
 // TODO: switch to using arrays for scores
@@ -194,8 +199,17 @@ int main()
 
         printScore(onesScore, twosScore, threesScore, foursScore, fivesScore, sixesScore,
                    threeOfAKind, fourOfAKind, fullHouse, smallStraight, largeStraight, yahtzee, chance);
-        cout << "would you like to play? Y for yes N for no." << endl;
-        cin >> choice;
+
+    }
+    cout << "would you like to play? Y for yes N for no." << endl;
+    cin >> choice;
+    if (choice == 'n' || choice == 'N')
+    {
+        play = false;
+    }
+    else if(choice  == 'y' || choice == 'Y')
+    {
+        play = true;
     }
 }
 }
