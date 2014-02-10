@@ -20,6 +20,13 @@
  *Edit:Coral Breding
  ** the game was on an endless loop of play
  * added a exit condition 2/10/14
+ *
+ * Edit: Stefan Reindel
+ ** Worked on scoreOnes(int ones,int twos,int threes,int fours ,int fives,int sixes)
+ ** Worked on scoreTwos(int ones,int twos,int threes,int fours ,int fives,int sixes)
+ ** Worked on scoreThrees(int ones,int twos,int threes,int fours ,int fives,int sixes)
+
+
  *******************************/
 
 // TODO: switch to using arrays for scores
@@ -452,6 +459,22 @@ int rollDie()
     return rand() % SIDES +1;
 }
 
+/**
+* Score Functions
+* scoreOnes
+*/
+int scoreOnes(int ones,int twos,int threes,int fours ,int fives,int sixes)
+{
+    return ones;
+}
+int scoreTwos(int ones,int twos,int threes,int fours ,int fives,int sixes)
+{
+    return twos * 2;
+}
+int scoreThrees(int ones,int twos,int threes,int fours ,int fives,int sixes)
+{
+    return threes * 3;
+}
 
 /*******************************
  * This is a very important message
