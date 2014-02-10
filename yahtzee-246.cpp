@@ -32,6 +32,9 @@
 
 
  **
+ * Edit:Matthew Bernik
+ ** There was no validation for the players playing choice
+ ** Added Validation loop 2/10/14
  *******************************/
 
 // TODO: switch to using arrays for scores
@@ -91,20 +94,29 @@ int main()
     cout << "Welcome to Yahtzee!" << endl;
     srand(time(0));
 
-    cout << "would you like to play? Y for yes N for no." << endl;
-    cin >> choice;
+    cout << "would you like to play? Y for yes, N for no." << endl;
 
+     ///ADDED VALIDATION LOOP FOR THE PLAYERS PLAYING CHOICE///
+     do{
 
-    if(choice == 'Y')
-    {
-        cout << "Play " << endl;
-    }
-    if(choice == 'N')
-    {
-        play = false;
-        cout << "Good bye" << endl;
+        cin >> choice;
 
-    }
+        if(choice == 'Y')
+        {
+            cout << "Play " << endl;
+        }
+        if(choice == 'N')
+        {
+            play = false;
+            cout << "Good bye" << endl;
+        }
+        if(choice != 'Y' && choice != 'N')
+        {
+            cout << "Im sorry, Please enter a Y for yes, or a N for no." << endl;
+        }
+        }while(choice != 'Y' && choice != 'N');
+        ///END OF VALIDATION///
+
     while (play)
     {
 
