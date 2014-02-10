@@ -15,7 +15,7 @@ class Numeral
         Numeral();
         virtual ~Numeral();
         string getroman() { return roman; };
-        void setroman(int number);
+        void setroman(string number);
     protected:
     private:
         string roman;

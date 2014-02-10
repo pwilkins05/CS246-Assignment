@@ -15,7 +15,7 @@ Numeral::~Numeral()
     //dtor
 }
 
-void Numeral::setroman(int number)
+void Numeral::setroman(string number)
 {
-
+    roman += number;
 }

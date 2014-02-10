@@ -1,11 +1,19 @@
 #include "main.h"
+#include "numeral.h"
 using namespace std;
 /**
 * Filename: main.cpp
 * Author: James Narayana Emery
 * Date: 4/20/2013
 * Purpose: Converting Decimals to Roman Numerals.
+
+*Coral Breding
+* Edit 2/10/14
+* class was missing in the includes numeral class - fixed
+* While loop was missing a bracket - fixed
+* setRoman took an int as an argument, it needed to take a string - fixed
 */
+
 int main()
 {
     int user=24;
@@ -15,7 +23,7 @@ int main()
     //Set roman numerals to their respective strings
     for(int i = 0; i <=19; i++)
     {
-        nums[i]->setroman(sets[i]);
+        nums[i].setroman(sets[i]);
     }
 
 
@@ -26,4 +34,5 @@ int main()
         cin >> user;
         if((1 <= user)and(user <= 20)) cout << "Roman Numeral equivalent is " << nums[user-1].getroman() << "\n" << endl;
 
+    }
 }
