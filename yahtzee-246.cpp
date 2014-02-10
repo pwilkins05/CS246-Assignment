@@ -391,6 +391,8 @@ int getScoreOption(int onesScore, int twosScore, int threesScore, int foursScore
         if (!valid)
         {
             cout << "That category has already been used" << endl;
+            cin.clear();// Jackson has been here and fixed your loop problem.
+            cin.ignore();
         }
     } while (!valid);
 
