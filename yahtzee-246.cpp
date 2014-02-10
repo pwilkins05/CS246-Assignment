@@ -17,6 +17,9 @@
  **  Added function rollDie to fix
  **     bug (dice not displaying
  **     correct value)
+ *Edit:Coral Breding
+ ** the game was on an endless loop of play
+ * added a exit condition 2/10/14
  *******************************/
 
 // TODO: switch to using arrays for scores
@@ -66,6 +69,9 @@ int main()
     int largeStraight;
     int yahtzee;
     int chance;
+    char choice;
+    bool play;
+
 
     onesScore = twosScore = threesScore = foursScore = fivesScore = sixesScore = EMPTY;
     threeOfAKind = fourOfAKind = fullHouse = smallStraight = largeStraight = yahtzee = chance = EMPTY;
@@ -73,6 +79,22 @@ int main()
     cout << "Welcome to Yahtzee!" << endl;
     srand(time(0));
 
+    cout << "would you like to play? Y for yes N for no." << endl;
+    cin >> choice;
+
+
+    if(choice == 'Y')
+    {
+        cout << "Play " << endl;
+    }
+    if(choice == 'N')
+    {
+        play = false;
+        cout << "Good bye" << endl;
+
+    }
+    while (play)
+    {
 
 
     for (int turn = 0; turn < NUM_CATEGORIES; turn++)
@@ -172,7 +194,10 @@ int main()
 
         printScore(onesScore, twosScore, threesScore, foursScore, fivesScore, sixesScore,
                    threeOfAKind, fourOfAKind, fullHouse, smallStraight, largeStraight, yahtzee, chance);
+        cout << "would you like to play? Y for yes N for no." << endl;
+        cin >> choice;
     }
+}
 }
 
 /*********************************************************
