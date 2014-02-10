@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1392059129 source:c:\users\owner\project\cs246-assignment\roman\main.cpp
+	"main.h"
+	"numeral.h"
+
+1392057106 c:\users\owner\project\cs246-assignment\roman\main.h
+	"numeral.h"
+	<iostream>
+
+1392059524 c:\users\owner\project\cs246-assignment\roman\numeral.h
+	<string>
+
+1392059524 source:c:\users\owner\project\cs246-assignment\roman\numeral.cpp
+	"numeral.h"
+
