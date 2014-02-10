@@ -12,12 +12,18 @@ using namespace std;
 * class was missing in the includes numeral class - fixed
 * While loop was missing a bracket - fixed
 * setRoman took an int as an argument, it needed to take a string - fixed
+*
+*Nalani Sanderson
+* Edit 2/10/14
+* Fixed bug where numbers >10 were displaying incorrectly
+*   (made nums[] size=20 instead of size=10)
+* Removed "main.h" - not used, unnecessary file
 */
 
 int main()
 {
-    int user=24;
-    Numeral nums[10];
+    int user=-1;
+    Numeral nums[20];
     string sets[] = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX"};
 
     //Set roman numerals to their respective strings
