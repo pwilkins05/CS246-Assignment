@@ -24,6 +24,13 @@
  *
  * Edit: Nathan Healea Modified (12:53 2/10/2014)
  ** Fix the exit condition that Coral created
+ *
+ * Edit: Stefan Reindel
+ ** Worked on scoreOnes(int ones,int twos,int threes,int fours ,int fives,int sixes)
+ ** Worked on scoreTwos(int ones,int twos,int threes,int fours ,int fives,int sixes)
+ ** Worked on scoreThrees(int ones,int twos,int threes,int fours ,int fives,int sixes)
+
+
  **
  * Edit:Matthew Bernik
  ** There was no validation for the players playing choice
@@ -478,6 +485,22 @@ int rollDie()
     return rand() % SIDES +1;
 }
 
+/**
+* Score Functions
+* scoreOnes
+*/
+int scoreOnes(int ones,int twos,int threes,int fours ,int fives,int sixes)
+{
+    return ones;
+}
+int scoreTwos(int ones,int twos,int threes,int fours ,int fives,int sixes)
+{
+    return twos * 2;
+}
+int scoreThrees(int ones,int twos,int threes,int fours ,int fives,int sixes)
+{
+    return threes * 3;
+}
 
 /*******************************
  * This is a very important message
