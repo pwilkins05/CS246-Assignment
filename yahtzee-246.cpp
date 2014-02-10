@@ -473,6 +473,7 @@ int rollDie()
     return rand() % SIDES +1;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 /**
 * Score Functions
@@ -496,9 +497,14 @@ int scoreThrees(int ones,int twos,int threes,int fours ,int fives,int sixes)
  * About Nothing at all! Don't Learn to much!
  ******************************/
 =======
+=======
+>>>>>>> f82f435abdac8c7d79c424c661ecee7134b2e929
 /*********************
  * 
  * Comment by Nathan Johnson for GIT Assignment
  * 
  * *******************
+<<<<<<< HEAD
+>>>>>>> f82f435abdac8c7d79c424c661ecee7134b2e929
+=======
 >>>>>>> f82f435abdac8c7d79c424c661ecee7134b2e929
