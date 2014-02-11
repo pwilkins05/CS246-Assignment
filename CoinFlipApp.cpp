@@ -4,8 +4,6 @@
 *
 * This is a app that simulates the flipping of a coin and keeps track of its stats
 
-* BUG LOCATION: lines 93 through 105
-* SOLUTION: remove all the comments in getOption function
 
 * Any Additions Put Info Below VV
 */
@@ -92,19 +90,13 @@ int getOption()
     string option;
     cout << "Please enter an option: ";
     cin >> option;
-    ///
-    ///         BUG IS HERE: Always returns a 1, for a coin flip, so app never ends
-    ///             V   V
-        return 1;
-    ///         FIX: By removing the "return 1;" and deleting this whole comment group
-    /**
+    // Jackson hall fixed this
     if (option == "Y" || option == "y")
         return 1;
     if (option == "R" || option == "r")
         return 2;
     if (option == "N" || option == "n")
         return 3;
-    //*/
     cout << "\n";
     displayInstructions();
     cout << "\nPlease enter a valid option: ";
