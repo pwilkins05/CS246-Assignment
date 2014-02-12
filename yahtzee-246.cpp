@@ -46,9 +46,13 @@
  * Edit:Matthew Bernik
  ** There was no validation for the players playing choice
  ** Added Validation loop 2/10/14
-*
-*Edit: Alex Crippen
-**Cleaned up file, added note
+ *
+ *Edit: Alex Crippen
+ **Cleaned up file, added note
+ *
+ *Edit: Kristian Strickland - 2/11/14
+ *  Cleaned up Y/N verification.  Program will accept lower case y and n.
+ *  Changed Initial starting loop to accept a 'Start' bool.
  *******************************/
 
 // TODO: switch to using arrays for scores
@@ -99,7 +103,8 @@ int main()
     int yahtzee;
     int chance;
     char choice;
-    bool play;
+    bool play = false;
+    bool start = false;
 
 
     onesScore = twosScore = threesScore = foursScore = fivesScore = sixesScore = EMPTY;
@@ -114,21 +119,23 @@ int main()
      do{
 
         cin >> choice;
-
-        if(choice == 'Y')
+        if(choice == 'Y' or choice == 'y')
         {
+            start = true;
+            play = true;
             cout << "Play " << endl;
         }
-        if(choice == 'N')
+        else if(choice == 'N' or choice ==  'n')
         {
             play = false;
+            start = true;
             cout << "Good bye" << endl;
         }
-        if(choice != 'Y' && choice != 'N')
+        else
         {
             cout << "Im sorry, Please enter a Y for yes, or a N for no." << endl;
         }
-        }while(choice != 'Y' && choice != 'N');
+        }while(!start);
         ///END OF VALIDATION///
 
     while (play)
@@ -153,23 +160,23 @@ int main()
             redo4 = diceList[3];
             redo5 = diceList[4];
 
-            if (redo1 == 'Y')
+            if (redo1 == 'Y' or redo1 == 'y')
             {
                 die[0] = rollDie();
             }
-            if (redo2 == 'Y')
+            if (redo2 == 'Y' or redo2 == 'y')
             {
                 die[1] = rollDie();
             }
-            if (redo3 == 'Y')
+            if (redo3 == 'Y' or redo3 == 'y')
             {
                 die[2] = rollDie();
             }
-            if (redo4 == 'Y')
+            if (redo4 == 'Y' or redo4 == 'y')
             {
                 die[3] = rollDie();
             }
-            if (redo5 == 'Y')
+            if (redo5 == 'Y' or redo5 == 'y')
             {
                 die[4] = rollDie();
             }
@@ -286,27 +293,29 @@ std::string askReroll()
     std::string choice = "";
     while (validator == false)
     {
-        cout << "Would you like to reroll dice \ntype (Y for Yes and N for No) in the format ***** for dice 12345 \n(for example YYNNY, changes dice 1,2 and 5)\n\n";
+        cout << "Would you like to reroll dice \n";
+        cout << "type (Y for Yes and N for No) in the format ***** for dice 12345 \n";
+        cout << "(for example YYNNY, changes dice 1,2 and 5)\n\n";
         cin >> choice;
 
         validator = true;
 
         for(int i = 0; i < choice.length(); i++)
         {
-        if ( (choice[i] != 'N') && (choice[i] != 'Y') ) {validator = false;}
+        if ( (choice[i] != 'N') && (choice[i] != 'n') && (choice[i] != 'Y') && (choice[i] != 'y') ) {validator = false;}
         }
 
-        if (validator == false){std::cout << "please insert valid letters. Only capital Y and capital N.";}
+        if (validator == false){std::cout << "Please insert valid letters. 'Y' or 'N'.\n";}
 
         if (choice.length() > 5)
             {
-                std::cout << "too many letters";
+                std::cout << endl << "*Too many letters*";
                 validator = false;
             }
 
         if (choice.length() < 5)
             {
-                std::cout << "too few letters";
+                std::cout << endl << "*Too few letters*";
                 validator = false;
             }
     }
