@@ -555,3 +555,6 @@ Marian's comment goes here
 
 /**Comment by Allison Calhoun*/
 
+/**Comment by Marti Garcia
+Not versed in C++, so wasn't sure what to comment on.
+Syntax for Switch statements is C++ are very similar to C#. */
