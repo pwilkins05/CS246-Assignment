@@ -10,6 +10,10 @@
  * Starter code by Paul Wilkins
  * Last Modified: 02/09/2014 1:20pm
  *
+ * Edit: Fixed up grammar errors and implemented the scoring
+ *   algorithms for 1-6. The rest of the algorithms still need to be
+ *   filled out by somebody. (Line 228)
+ *
  * Edit: Narayana Emery
  **  Changed Dice to array**
  *
@@ -114,7 +118,7 @@ int main()
     cout << "Welcome to Yahtzee!" << endl;
     srand(time(0));
 
-    cout << "would you like to play? Y for yes, N for no." << endl;
+    cout << "Would you like to play? Y for yes, N for no." << endl;
 
      ///ADDED VALIDATION LOOP FOR THE PLAYERS PLAYING CHOICE///
      do{
@@ -124,17 +128,17 @@ int main()
         {
             start = true;
             play = true;
-            cout << "Play " << endl;
+            cout << "Play" << endl;
         }
         else if (choice == 'N' or choice ==  'n')
         {
             play = false;
             start = true;
-            cout << "Good bye" << endl;
+            cout << "Goodbye!" << endl;
         }
         else
         {
-            cout << "Im sorry, Please enter a Y for yes, or a N for no." << endl;
+            cout << "Im sorry, please enter a Y for yes, or a N for no." << endl;
         }
         }while(!start);
         ///END OF VALIDATION///
@@ -195,32 +199,33 @@ int main()
         fives = tabulateDice(5, die);
         sixes = tabulateDice(6, die);
 
+
         int scoreOption = getScoreOption(onesScore, twosScore, threesScore, foursScore,
                                          fivesScore, sixesScore, threeOfAKind,
                                          fourOfAKind, fullHouse, smallStraight,
                                          largeStraight, yahtzee, chance);
 
-        /*switch (scoreOption)
+        switch (scoreOption)
         {
             case ONES:
-                onesScore = scoreOnes(ones, twos, threes, fours, fives, sixes);
+                onesScore = ones;
                 break;
             case TWOS:
-                twosScore = scoreTwos(ones, twos, threes, fours, fives, sixes);
+                twosScore = twos * 2;
                 break;
             case THREES:
-                threesScore = scoreThrees(ones, twos, threes, fours, fives, sixes);
+                threesScore = threes * 3;
                 break;
             case FOURS:
-                foursScore = scoreFours(ones, twos, threes, fours, fives, sixes);
+                foursScore = fours * 4;
                 break;
             case FIVES:
-                fivesScore = scoreFives(ones, twos, threes, fours, fives, sixes);
+                fivesScore = fives * 5;
                 break;
             case SIXES:
-                sixesScore = scoreSixes(ones, twos, threes, fours, fives, sixes);
+                sixesScore = sixes * 6;
                 break;
-            case THREE_OF_A_KIND:
+            /*case THREE_OF_A_KIND:
                 threeOfAKind = scoreThreeOfAKind(ones, twos, threes, fours, fives, sixes);
                 break;
             case FOUR_OF_A_KIND:
@@ -240,8 +245,8 @@ int main()
                 break;
             case CHANCE:
                 chance = scoreChance(ones, twos, threes, fours, fives, sixes);
-                break;
-        }*/
+                break;*/
+        }
 
         printScore(onesScore, twosScore, threesScore, foursScore, fivesScore, sixesScore,
                    threeOfAKind, fourOfAKind, fullHouse, smallStraight, largeStraight, yahtzee, chance);
@@ -295,8 +300,8 @@ std::string askReroll()
     std::string choice = "";
     while (validator == false)
     {
-        cout << "Would you like to reroll dice \n";
-        cout << "type (Y for Yes and N for No) in the format ***** for dice 12345 \n";
+        cout << "Would you like to reroll dice\n";
+        cout << "Type (Y for Yes and N for No) in the format ***** for dice 12345\n";
         cout << "(for example YYNNY, changes dice 1,2 and 5)\n\n";
         cin >> choice;
 
@@ -528,22 +533,6 @@ int rollDie()
     return rand() % SIDES +1;
 }
 
-/**
-* Score Functions
-* scoreOnes
-*/
-int scoreOnes(int ones,int twos,int threes,int fours ,int fives,int sixes)
-{
-    return ones;
-}
-int scoreTwos(int ones,int twos,int threes,int fours ,int fives,int sixes)
-{
-    return twos * 2;
-}
-int scoreThrees(int ones,int twos,int threes,int fours ,int fives,int sixes)
-{
-    return threes * 3;
-}
 /**************************************
 Marian's comment goes here
 *///////////////////////////////////////
