@@ -49,7 +49,8 @@ namespace RaffleDraw
             public override string ToString()
             {
 		///BUG - set to empty string///
-                string str;
+        ///EDIT - Set string to empty///
+                string str = "";
                 foreach (Ticket c in tickets)
                 {
                     str += (c.ToString() + "\n");
