@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1392222354 source:c:\users\jebrim\cs246\cs246-assignment\damage_formula\main.cpp
+	<iostream>
+	<cmath>
+
