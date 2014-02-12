@@ -2,7 +2,7 @@
 * Original (broken) code by Joshua Evans
 * KNOWN BUGS: 
 ** Game sometimes doesn't allow the user to guess before finishing
-** Random number is repeated on multiple playthroughs
+** Random number is repeated on multiple playthroughs: Fixed Narayana Emery Feb 12th 10:28
 */
 
 #include <iostream>
@@ -21,6 +21,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	int guess;
 	int num;
 	bool win;
+	srand(time ( NULL ));
 	openingText();
 	num = getRandom();
 	while (!win)

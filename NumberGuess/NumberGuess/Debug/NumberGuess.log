@@ -1,15 +1,4 @@
-﻿Build started 2/11/2014 11:08:03 PM.
-     1>Project "D:\Documents\School\Projects\CS246-Assignment\NumberGuess\NumberGuess\NumberGuess.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt NumberGuess.cpp
-         NumberGuess.cpp
-     1>d:\documents\school\projects\cs246-assignment\numberguess\numberguess\numberguess.cpp(26): warning C4700: uninitialized local variable 'win' used
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Documents\School\Projects\CS246-Assignment\NumberGuess\Debug\NumberGuess.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Documents\School\Projects\CS246-Assignment\NumberGuess\Debug\NumberGuess.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Documents\School\Projects\CS246-Assignment\NumberGuess\Debug\NumberGuess.lib" /MACHINE:X86 Debug\NumberGuess.obj
-         Debug\stdafx.obj
-         NumberGuess.vcxproj -> D:\Documents\School\Projects\CS246-Assignment\NumberGuess\Debug\NumberGuess.exe
-     1>Done Building Project "D:\Documents\School\Projects\CS246-Assignment\NumberGuess\NumberGuess\NumberGuess.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:00.71
+﻿  NumberGuess.cpp
+c:\users\sgt.waffles\documents\visual studio 2013\projects\cs246-assignment\numberguess\numberguess\numberguess.cpp(24): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\sgt.waffles\documents\visual studio 2013\projects\cs246-assignment\numberguess\numberguess\numberguess.cpp(27): warning C4700: uninitialized local variable 'win' used
+  NumberGuess.vcxproj -> C:\Users\Sgt.Waffles\Documents\Visual Studio 2013\Projects\CS246-Assignment\NumberGuess\Debug\NumberGuess.exe
