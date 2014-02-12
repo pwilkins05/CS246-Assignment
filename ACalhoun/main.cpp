@@ -2,6 +2,10 @@
 Made by Allison Calhoun
 
 Displays the salary
+
+Edit : Kyle Seidlitz 
+Removed System("pause");
+Changed setprecision from 4 to 2
 */
 #include <iostream>
 //needs another include here
@@ -23,10 +27,10 @@ int main()
 
     currentPay = currentPay * currentHours;
 
-    system("pause"); //Problem here
+    //system("pause"); //Problem here
     //display the pay
     cout <<endl;
-    cout << fixed << setprecision(4); //This is set wrong
+    cout << fixed << setprecision(2); //This is set wrong
     cout << "Gross pay this pay period: $" << currentPay << endl;
 
     return 0;
