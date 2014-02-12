@@ -16,7 +16,7 @@ namespace RaffleDraw
 {
      public class TicketList
     {
-	///BUG///
+	///BUG - Spelling///
         private List<Ticet> tickets;
 
             public delegate void ChangeHandler(TicketList tickets);
@@ -48,7 +48,7 @@ namespace RaffleDraw
 
             public override string ToString()
             {
-		///BUG///
+		///BUG - set to empty string///
                 string str;
                 foreach (Ticket c in tickets)
                 {
@@ -101,7 +101,7 @@ namespace RaffleDraw
             public static TicketList
             operator +(TicketList cl, Ticket c)
             {
-	///BUG///
+	///BUG - lower case c///
                 cl.Add(C);
                 return cl;
             }
