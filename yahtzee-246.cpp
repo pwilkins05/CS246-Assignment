@@ -20,6 +20,15 @@
  *
  * Edit:Coral Breding
  ** the game was on an endless loop of play
+<<<<<<< HEAD
+ * added a exit condition 2/10/14
+
+ * Edit: Duncan M. Luiten
+    made it so selecting the rerolls for dice goes faster.
+    instead of inserting a Y or N for each line.
+    You insert 5 Y or N's in a row. like this: YNNYY.
+    that will change values 1, 4, and 5.
+=======
  ** added a exit condition 2/10/14
  *
  * Edit: Nathan Healea Modified (12:53 2/10/2014)
@@ -35,6 +44,7 @@
  * Edit:Matthew Bernik
  ** There was no validation for the players playing choice
  ** Added Validation loop 2/10/14
+>>>>>>> fc6fe411e7fddf76db91468823d93516f89e91fb
  *******************************/
 
 // TODO: switch to using arrays for scores
@@ -47,7 +57,7 @@
 using namespace std;
 
 void printRoll(int dice[]);
-bool askReroll(int n);
+std::string askReroll();
 void printSeparator();
 void printScore(int onesScore, int twosScore, int threesScore, int foursScore,
                 int fivesScore, int sixesScore, int threeOfAKind,
@@ -72,7 +82,7 @@ int main()
 {
 	///FIXED///
     int die[5];
-    bool redo1, redo2, redo3, redo4, redo5;
+    char redo1, redo2, redo3, redo4, redo5;
 
     int ones, twos, threes, fours, fives, sixes;
 
@@ -131,34 +141,38 @@ int main()
 
         do
         {
-            redo1 = askReroll(1);
-            redo2 = askReroll(2);
-            redo3 = askReroll(3);
-            redo4 = askReroll(4);
-            redo5 = askReroll(5);
+            std::string diceList = askReroll();
 
-            if (redo1)
+            redo1 = diceList[0];
+            redo2 = diceList[1];
+            redo3 = diceList[2];
+            redo4 = diceList[3];
+            redo5 = diceList[4];
+
+            if (redo1 == 'Y')
             {
                 die[0] = rollDie();
             }
-            if (redo2)
+            if (redo2 == 'Y')
             {
                 die[1] = rollDie();
             }
-            if (redo3)
+            if (redo3 == 'Y')
             {
                 die[2] = rollDie();
             }
-            if (redo4)
+            if (redo4 == 'Y')
             {
                 die[3] = rollDie();
             }
-            if (redo5)
+            if (redo5 == 'Y')
             {
                 die[4] = rollDie();
             }
+
             printRoll(die);
             round++;
+
         } while ((redo1 || redo2 || redo3 || redo4 || redo5) && round < 3);
 
         ones = tabulateDice(1, die);
@@ -262,24 +276,38 @@ void printRoll(int dice[])
  * 'Y' 'y' and 'N' 'n'.
  *
  *********************************************************/
-bool askReroll(int n)
+std::string askReroll()
 {
-    char ch;
-    while (true)
+    bool validator = false;
+    std::string choice = "";
+    while (validator == false)
     {
-        cout << "Would you like to reroll die " << n << "? (Y/N) ";
-        cin >> ch;
-        switch (toupper(ch))
+        cout << "Would you like to reroll dice \ntype (Y for Yes and N for No) in the format ***** for dice 12345 \n(for example YYNNY, changes dice 1,2 and 5)\n\n";
+        cin >> choice;
+
+        validator = true;
+
+        for(int i = 0; i < choice.length(); i++)
         {
-            case 'Y':
-                return true;
-            case 'N':
-                return false;
-            default:
-                cout << "Invalid response" << endl;
+        if ( (choice[i] != 'N') && (choice[i] != 'Y') ) {validator = false;}
         }
+
+        if (validator == false){std::cout << "please insert valid letters. Only capital Y and capital N.";}
+
+        if (choice.length() > 5)
+            {
+                std::cout << "too many letters";
+                validator = false;
+            }
+
+        if (choice.length() < 5)
+            {
+                std::cout << "too few letters";
+                validator = false;
+            }
     }
 
+    return choice;
 }
 
 
@@ -484,8 +512,8 @@ int rollDie()
 {
     return rand() % SIDES +1;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
+///<<<<<<< HEAD
+///<<<<<<< HEAD
 
 /**
 * Score Functions
@@ -508,15 +536,16 @@ int scoreThrees(int ones,int twos,int threes,int fours ,int fives,int sixes)
  * This is a very important message
  * About Nothing at all! Don't Learn to much!
  ******************************/
-=======
-=======
->>>>>>> f82f435abdac8c7d79c424c661ecee7134b2e929
+///=======
+///=======
+///>>>>>>> f82f435abdac8c7d79c424c661ecee7134b2e929
 /*********************
- * 
+ *
  * Comment by Nathan Johnson for GIT Assignment
- * 
+ *
  * *******************
 <<<<<<< HEAD
 >>>>>>> f82f435abdac8c7d79c424c661ecee7134b2e929
 =======
 >>>>>>> f82f435abdac8c7d79c424c661ecee7134b2e929
+*/
