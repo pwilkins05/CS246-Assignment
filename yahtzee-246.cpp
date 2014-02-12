@@ -559,7 +559,7 @@ Marian's comment goes here
  * *******************
 */
 /************************************
-*	Someone already did my fix, gratz :D
+*	Someone already did my fix, 
 *	Kyle Seidlitz for GIT assignment
 *******************************************/
 
