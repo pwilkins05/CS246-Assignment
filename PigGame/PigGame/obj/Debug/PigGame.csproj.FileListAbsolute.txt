@@ -1,6 +1,0 @@
-C:\Users\Marian\Dropbox\Winter2014\AspNet\Exercises\Exercise6\PigGame\PigGame\bin\Debug\PigGame.exe.config
-C:\Users\Marian\Dropbox\Winter2014\AspNet\Exercises\Exercise6\PigGame\PigGame\bin\Debug\PigGame.exe
-C:\Users\Marian\Dropbox\Winter2014\AspNet\Exercises\Exercise6\PigGame\PigGame\bin\Debug\PigGame.pdb
-C:\Users\Marian\Dropbox\Winter2014\AspNet\Exercises\Exercise6\PigGame\PigGame\obj\Debug\PigGame.exe
-C:\Users\Marian\Dropbox\Winter2014\AspNet\Exercises\Exercise6\PigGame\PigGame\obj\Debug\PigGame.pdb
-C:\Users\Marian\Dropbox\Winter2014\AspNet\Exercises\Exercise6\PigGame\PigGame\obj\Debug\PigGame.csprojResolveAssemblyReference.cache
