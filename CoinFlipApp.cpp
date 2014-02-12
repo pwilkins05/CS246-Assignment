@@ -8,6 +8,8 @@
 * Any Additions Put Info Below VV
 */
 
+/// an option was added that fliped a coin three times in a row.
+
 #include <iostream>
 #include <iomanip>
 #include <cstdlib>
@@ -52,12 +54,30 @@ int main()
 
             break;
 
-        default:
+        case 3:
             displayStats(totalHeads, totalTails, totalFlips);
             cout << "\nExiting Program\n";
             done = true;
             break;
 
+        default:
+            std::cout << "\n\n Results: ";
+            for(int i = 0; i < 3 ; i++)
+            {
+                if (flipCoin())///Coin Lands heads
+                {
+                    totalHeads++;
+                    std::cout << "H";
+                }
+                else///Coin Lands Tails
+                {
+                    totalTails++;
+                    std::cout << "T";
+                }
+            }
+            std::cout << "\n\n";
+            totalFlips += 2;
+            displayStats(totalHeads, totalTails, totalFlips);
         }
     }
     cout << "\nThanks for playing my coin flip app.\n";
@@ -75,7 +95,9 @@ void displayInstructions()
     cout << "Here are the instructions:\n"
     << "Type \"Y\" to flip the coin.\n"
     << "Type \"R\" to reset the stats.\n"
-    << "Type \"N\" to quit the app.\n";
+    << "Type \"N\" to quit the app.\n"
+    /// added by Duncan M. Luiten
+    << "Type \"T\" to flip the coin three times.\n";
     return;
 }
 /**
@@ -97,6 +119,8 @@ int getOption()
         return 2;
     if (option == "N" || option == "n")
         return 3;
+    if (option == "T" || option == "t")
+        return 4;
     cout << "\n";
     displayInstructions();
     cout << "\nPlease enter a valid option: ";
@@ -120,6 +144,7 @@ void displayStats(int tHeads, int tTails, float  tFlips)
     << "Heads Percentage: " << setprecision(3) << ((tHeads/tFlips)*100) << "\n"
     << "Total Tails: " << tTails << "\n"
     << "Tails Percentage: " << setprecision(3) << ((tTails/tFlips)*100) << "\n";
+
     return;
 }
 
