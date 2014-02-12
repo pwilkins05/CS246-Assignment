@@ -1,8 +1,8 @@
 /**
 * Original (broken) code by Joshua Evans
 * KNOWN BUGS: 
-** Game sometimes doesn't allow the user to guess before finishing
-** Random number is repeated on multiple playthroughs: Fixed Narayana Emery Feb 12th 10:28
+** Fixed: Game sometimes doesn't allow the user to guess before finishing: Narayana Emery Feb 12th 10:39
+** Fixed: Random number is repeated on multiple playthroughs: Narayana Emery Feb 12th 10:28
 */
 
 #include <iostream>
@@ -20,7 +20,7 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	int guess;
 	int num;
-	bool win;
+	bool win = false;
 	srand(time ( NULL ));
 	openingText();
 	num = getRandom();
