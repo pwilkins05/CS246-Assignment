@@ -18,6 +18,11 @@
  **     bug (dice not displaying
  **     correct value)
  *
+ * Edit:Jackson Hall
+ **Fixed the infinite loop caused by invalid
+ **scoring choice input
+ *
+ *
  * Edit:Coral Breding
  ** the game was on an endless loop of play
  * added a exit condition 2/10/14
