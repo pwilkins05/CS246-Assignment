@@ -1,4 +1,16 @@
-﻿using System;
+﻿/*******************************
+ *
+ * Yahtzee
+ *
+ * Starter code by 
+ * Last Modified: 
+ *
+ * Edit: Alex Crippen
+ **  Added closing bracket
+
+***************************/
+
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportsStore.Domain.Abstract;
 using SportsStore.Domain.Entities;
@@ -16,7 +28,7 @@ namespace SportsStore.UnitTests
     public class UnitTest1
     {
         //Error right here...
-        [TestMethod
+        [TestMethod]
         public void Can_Pageinate()
         {
             //Arrange
