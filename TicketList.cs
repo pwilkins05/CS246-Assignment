@@ -16,8 +16,8 @@ namespace RaffleDraw
 {
      public class TicketList
     {
-	///BUG - Spelling///
-        private List<Ticet> tickets;
+	///BUG - Spelling/// Corrected by mg
+        private List<Ticket> tickets;
 
             public delegate void ChangeHandler(TicketList tickets);
             public event ChangeHandler Changed;
