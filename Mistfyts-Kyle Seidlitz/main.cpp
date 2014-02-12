@@ -26,10 +26,28 @@ int main()
     }
 
 
-    // Bug: There is no validation for this portion of the code.
+    // Bug: There is no validation for this portion of the code. //validation made by ACalhoun
     int number = 0;
+    bool isVarrified =false;
     cout << "Enter a number between 0 and 100" << endl;
     cin >> number;
+
+    do
+    {
+
+        if (number <=-1)
+        {
+            cout << "Wrong Number. Please Enter a Number between 0 and 100" << endl;
+            cin >>number;
+        }
+        else if (number >=101)
+        {
+            cout << "Wrong Number. Please Enter a number between 0 and 100" << endl;
+            cin >>number;
+        }
+        else isVarrified = true;
+
+    }while(isVarrified ==false);
     switch (number)
     {
     case 0:
