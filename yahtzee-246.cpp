@@ -17,8 +17,10 @@
  **  Added function rollDie to fix
  **     bug (dice not displaying
  **     correct value)
- *Edit:Coral Breding
+ *
+ * Edit:Coral Breding
  ** the game was on an endless loop of play
+<<<<<<< HEAD
  * added a exit condition 2/10/14
 
  * Edit: Duncan M. Luiten
@@ -26,6 +28,23 @@
     instead of inserting a Y or N for each line.
     You insert 5 Y or N's in a row. like this: YNNYY.
     that will change values 1, 4, and 5.
+=======
+ ** added a exit condition 2/10/14
+ *
+ * Edit: Nathan Healea Modified (12:53 2/10/2014)
+ ** Fix the exit condition that Coral created
+ *
+ * Edit: Stefan Reindel
+ ** Worked on scoreOnes(int ones,int twos,int threes,int fours ,int fives,int sixes)
+ ** Worked on scoreTwos(int ones,int twos,int threes,int fours ,int fives,int sixes)
+ ** Worked on scoreThrees(int ones,int twos,int threes,int fours ,int fives,int sixes)
+
+
+ **
+ * Edit:Matthew Bernik
+ ** There was no validation for the players playing choice
+ ** Added Validation loop 2/10/14
+>>>>>>> fc6fe411e7fddf76db91468823d93516f89e91fb
  *******************************/
 
 // TODO: switch to using arrays for scores
@@ -85,20 +104,29 @@ int main()
     cout << "Welcome to Yahtzee!" << endl;
     srand(time(0));
 
-    cout << "would you like to play? Y for yes N for no." << endl;
-    cin >> choice;
+    cout << "would you like to play? Y for yes, N for no." << endl;
 
+     ///ADDED VALIDATION LOOP FOR THE PLAYERS PLAYING CHOICE///
+     do{
 
-    if(choice == 'Y')
-    {
-        cout << "Play " << endl;
-    }
-    if(choice == 'N')
-    {
-        play = false;
-        cout << "Good bye" << endl;
+        cin >> choice;
 
-    }
+        if(choice == 'Y')
+        {
+            cout << "Play " << endl;
+        }
+        if(choice == 'N')
+        {
+            play = false;
+            cout << "Good bye" << endl;
+        }
+        if(choice != 'Y' && choice != 'N')
+        {
+            cout << "Im sorry, Please enter a Y for yes, or a N for no." << endl;
+        }
+        }while(choice != 'Y' && choice != 'N');
+        ///END OF VALIDATION///
+
     while (play)
     {
 
@@ -204,8 +232,17 @@ int main()
 
         printScore(onesScore, twosScore, threesScore, foursScore, fivesScore, sixesScore,
                    threeOfAKind, fourOfAKind, fullHouse, smallStraight, largeStraight, yahtzee, chance);
-        cout << "would you like to play? Y for yes N for no." << endl;
-        cin >> choice;
+
+    }
+    cout << "would you like to play? Y for yes N for no." << endl;
+    cin >> choice;
+    if (choice == 'n' || choice == 'N')
+    {
+        play = false;
+    }
+    else if(choice  == 'y' || choice == 'Y')
+    {
+        play = true;
     }
 }
 }
@@ -475,3 +512,40 @@ int rollDie()
 {
     return rand() % SIDES +1;
 }
+///<<<<<<< HEAD
+///<<<<<<< HEAD
+
+/**
+* Score Functions
+* scoreOnes
+*/
+int scoreOnes(int ones,int twos,int threes,int fours ,int fives,int sixes)
+{
+    return ones;
+}
+int scoreTwos(int ones,int twos,int threes,int fours ,int fives,int sixes)
+{
+    return twos * 2;
+}
+int scoreThrees(int ones,int twos,int threes,int fours ,int fives,int sixes)
+{
+    return threes * 3;
+}
+
+/*******************************
+ * This is a very important message
+ * About Nothing at all! Don't Learn to much!
+ ******************************/
+///=======
+///=======
+///>>>>>>> f82f435abdac8c7d79c424c661ecee7134b2e929
+/*********************
+ *
+ * Comment by Nathan Johnson for GIT Assignment
+ *
+ * *******************
+<<<<<<< HEAD
+>>>>>>> f82f435abdac8c7d79c424c661ecee7134b2e929
+=======
+>>>>>>> f82f435abdac8c7d79c424c661ecee7134b2e929
+*/

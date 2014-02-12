@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1392090647 source:c:\users\nathan\documents\school\winter 2014\system design (cs246)\repository\cs246-assignment\calculator (nathan healea)\calculator\calulator.cpp
+	"Calulator.h"
+
+1392090929 c:\users\nathan\documents\school\winter 2014\system design (cs246)\repository\cs246-assignment\calculator (nathan healea)\calculator\calulator.h
+
+1392090996 source:c:\users\nathan\documents\school\winter 2014\system design (cs246)\repository\cs246-assignment\calculator (nathan healea)\calculator\main.cpp
+	<iostream>
+	"Calulator.h"
+

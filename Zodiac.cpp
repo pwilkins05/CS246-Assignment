@@ -11,8 +11,8 @@
 /************************
 *
 * TO-DO: add Chinese zodiac
-* BUG: curMo not setting properly
-* BUG: curYear not setting properly
+* Fixed: curMo not setting properly
+* Fixed: curYear not setting properly
 *
 ************************/
 
@@ -54,10 +54,10 @@ int calcAge(int month, int day, int year, int& msg)
 
     //set today's date
     time_t t = time(0);   // get time now
-    struct tm * now = localtime( & t );
-    curMo = now->tm_mon;
+    struct tm * now = localtime(&t);
+    curMo = now->tm_mon + 1; // Jackson fixed This here
     curDay = now->tm_mday;
-    curYr = now->tm_year;
+    curYr = now->tm_year + 1900; // Jackson fixed This here
 
     if (month < curMo) //birthday already happened
     { age = curYr - year; }

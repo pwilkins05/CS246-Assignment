@@ -1,6 +1,6 @@
 ; Bugs:
 ; - line 16: Const UPPER_LIMIT should be 47, not 48
-; - line 54: 'eax' should read 'edx' just like line 58
+; - FIXED BY MATTHEW BERNIK.....line 54: 'eax' should read 'edx' just like line 58
 ; - line 146: end of file needs the following line without quotes: "END main"
 
 
@@ -51,7 +51,7 @@ Intro	PROC
 
 ;print program name line 1
 	call Clrscr
-	mov eax,OFFSET intro1
+	mov edx,OFFSET intro1
 	call WriteString
 	call Crlf
 ;print author line 2
