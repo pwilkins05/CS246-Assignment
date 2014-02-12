@@ -8,21 +8,26 @@ double Get_Block(int block);
 
 int main()
 {
+ /*
+ * Fixed runtime error where comments weren't registering as comments but was
+ * causing a segmentation fault. - Justin Ead
+ */
 
- /// This is a rough draft for a damage formula that I just made up
- /// We want to enter numbers for specific stats and make sure that we are getting out the correct values.
- /// you can use a calculator to test this stuff if you want.
 
- ///*******************************************************************************************************************
- /// Things to fix
- ///
- /// #1. The stats currently don't check for wrong values. Put in error detectors.
- /// #2. create a small element effect system. Example: like a precent multiplier for the damage formula.
- /// #3. make it so critical and block give small addition bonuses as well as the multiplication effect.
- ///
- ///*******************************************************************************************************************
+ // This is a rough draft for a damage formula that I just made up
+ // We want to enter numbers for specific stats and make sure that we are getting out the correct values.
+ // you can use a calculator to test this stuff if you want.
 
- /// use values of around 300 for attack and defense.
+ //*******************************************************************************************************************
+ // Things to fix
+ //
+ // #1. The stats currently don't check for wrong values. Put in error detectors.
+ // #2. create a small element effect system. Example: like a precent multiplier for the damage formula.
+ // #3. make it so critical and block give small addition bonuses as well as the multiplication effect.
+ //
+ //*******************************************************************************************************************
+
+ // use values of around 300 for attack and defense.
 
  int attack = 0;
  int defense = 0;
