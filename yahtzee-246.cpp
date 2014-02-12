@@ -33,6 +33,7 @@
     You insert 5 Y or N's in a row. like this: YNNYY.
     that will change values 1, 4, and 5.
 
+
  ** added a exit condition 2/10/14
  *
  * Edit: Nathan Healea Modified (12:53 2/10/2014)
@@ -559,7 +560,9 @@ Marian's comment goes here
  * *******************
 */
 /************************************
-*	Someone already did my fix, 
+*	Someone already did my fix,
 *	Kyle Seidlitz for GIT assignment
 *******************************************/
+
+/**Comment by Allison Calhoun*/
 
