@@ -1,0 +1,5 @@
+C:\Users\Marian\CS246\CS246-Assignment\RockPaperScissors\RockPaperScissors\bin\Debug\RockPaperScissors.exe.config
+C:\Users\Marian\CS246\CS246-Assignment\RockPaperScissors\RockPaperScissors\bin\Debug\RockPaperScissors.exe
+C:\Users\Marian\CS246\CS246-Assignment\RockPaperScissors\RockPaperScissors\bin\Debug\RockPaperScissors.pdb
+C:\Users\Marian\CS246\CS246-Assignment\RockPaperScissors\RockPaperScissors\obj\Debug\RockPaperScissors.exe
+C:\Users\Marian\CS246\CS246-Assignment\RockPaperScissors\RockPaperScissors\obj\Debug\RockPaperScissors.pdb

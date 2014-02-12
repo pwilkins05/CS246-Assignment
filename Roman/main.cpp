@@ -1,4 +1,4 @@
-#include "main.h"
+#include <iostream>
 #include "numeral.h"
 using namespace std;
 /**
@@ -18,11 +18,17 @@ using namespace std;
 * Fixed bug where numbers >10 were displaying incorrectly
 *   (made nums[] size=20 instead of size=10)
 * Removed "main.h" - not used, unnecessary file
+*
+*Nathan Healea
+* Edit 2/10/2014
+* Fixed error with main.h file.
+*
 */
 
 int main()
 {
-    int user=-1;
+    Numeral convert;
+    int user = 1;
     Numeral nums[20];
     string sets[] = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX"};
 
@@ -39,6 +45,7 @@ int main()
         cout << "Convert Decimal to Roman Numeral: ";
         cin >> user;
         if((1 <= user)and(user <= 20)) cout << "Roman Numeral equivalent is " << nums[user-1].getroman() << "\n" << endl;
+
 
     }
 }

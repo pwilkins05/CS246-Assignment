@@ -1,7 +1,7 @@
 ; Bugs:
-; - line 16: Const UPPER_LIMIT should be 47, not 48
-; - FIXED BY MATTHEW BERNIK.....line 54: 'eax' should read 'edx' just like line 58
-; - line 146: end of file needs the following line without quotes: "END main"
+; - FIXED BY KRISTIAN STRICKLAND line 16: Const UPPER_LIMIT should be 47, not 48
+; - FIXED BY MATTHEW BERNIK..... line 54: 'eax' should read 'edx' just like line 58
+; - FIXED BY KRISTIAN STRICKLAND line 146: end of file needs the following line without quotes: "END main"
 
 
 TITLE	Program 2		(pgm2.asm)
@@ -13,7 +13,7 @@ TITLE	Program 2		(pgm2.asm)
 INCLUDE Irvine32.inc
 
 LOWER_LIMIT EQU 1	;must evaluate at least one term
-UPPER_LIMIT EQU 48	;terms larger than 46th overflow DWORD
+UPPER_LIMIT EQU 47	;terms larger than 46th overflow DWORD
 
 .data
 a		DWORD	1	;first Fibonacci term, by definition
@@ -143,4 +143,5 @@ Goodbye PROC
 	ret
 Goodbye ENDP
 
+END MAIN
 

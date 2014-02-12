@@ -10,6 +10,10 @@
  * Starter code by Paul Wilkins
  * Last Modified: 02/09/2014 1:20pm
  *
+ * Edit: Fixed up grammar errors and implemented the scoring
+ *   algorithms for 1-6. The rest of the algorithms still need to be
+ *   filled out by somebody. (Line 228)
+ *
  * Edit: Narayana Emery
  **  Changed Dice to array**
  *
@@ -18,8 +22,22 @@
  **     bug (dice not displaying
  **     correct value)
  *
+ * Edit:Jackson Hall
+ **Fixed the infinite loop caused by invalid
+ **scoring choice input
+ *
+ *
  * Edit:Coral Breding
  ** the game was on an endless loop of play
+ * added a exit condition 2/10/14
+
+ * Edit: Duncan M. Luiten
+    made it so selecting the rerolls for dice goes faster.
+    instead of inserting a Y or N for each line.
+    You insert 5 Y or N's in a row. like this: YNNYY.
+    that will change values 1, 4, and 5.
+
+
  ** added a exit condition 2/10/14
  *
  * Edit: Nathan Healea Modified (12:53 2/10/2014)
@@ -29,12 +47,17 @@
  ** Worked on scoreOnes(int ones,int twos,int threes,int fours ,int fives,int sixes)
  ** Worked on scoreTwos(int ones,int twos,int threes,int fours ,int fives,int sixes)
  ** Worked on scoreThrees(int ones,int twos,int threes,int fours ,int fives,int sixes)
-
-
- **
+ *
  * Edit:Matthew Bernik
  ** There was no validation for the players playing choice
  ** Added Validation loop 2/10/14
+ *
+ *Edit: Alex Crippen
+ **Cleaned up file, added note
+ *
+ *Edit: Kristian Strickland - 2/11/14
+ *  Cleaned up Y/N verification.  Program will accept lower case y and n.
+ *  Changed Initial starting loop to accept a 'Start' bool.
  *******************************/
 
 // TODO: switch to using arrays for scores
@@ -47,7 +70,7 @@
 using namespace std;
 
 void printRoll(int dice[]);
-bool askReroll(int n);
+std::string askReroll();
 void printSeparator();
 void printScore(int onesScore, int twosScore, int threesScore, int foursScore,
                 int fivesScore, int sixesScore, int threeOfAKind,
@@ -70,11 +93,11 @@ enum Category { ONES = 1, TWOS, THREES, FOURS, FIVES, SIXES, THREE_OF_A_KIND,
 
 int main()
 {
-
+	///FIXED///
     int die[5];
-    bool redo1, redo2, redo3, redo4, redo5;
+    char redo1, redo2, redo3, redo4, redo5;
 
-    int ones, twos, threes, fours, fives, sixes;
+
 
     int onesScore, twosScore, threesScore, foursScore, fivesScore, sixesScore;
     int threeOfAKind;
@@ -85,7 +108,8 @@ int main()
     int yahtzee;
     int chance;
     char choice;
-    bool play;
+    bool play = false;
+    bool start = false;
 
 
     onesScore = twosScore = threesScore = foursScore = fivesScore = sixesScore = EMPTY;
@@ -94,29 +118,32 @@ int main()
     cout << "Welcome to Yahtzee!" << endl;
     srand(time(0));
 
-    cout << "would you like to play? Y for yes, N for no." << endl;
+    cout << "Would you like to play? Y for yes, N for no." << endl;
 
      ///ADDED VALIDATION LOOP FOR THE PLAYERS PLAYING CHOICE///
      do{
 
         cin >> choice;
-
-        if(choice == 'Y')
+        if (choice == 'Y' or choice == 'y')
         {
-            cout << "Play " << endl;
+            start = true;
+            play = true;
+            cout << "Play" << endl;
         }
-        if(choice == 'N')
+        else if (choice == 'N' or choice ==  'n')
         {
             play = false;
-            cout << "Good bye" << endl;
+            start = true;
+            cout << "Goodbye!" << endl;
         }
-        if(choice != 'Y' && choice != 'N')
+        else
         {
-            cout << "Im sorry, Please enter a Y for yes, or a N for no." << endl;
+            cout << "Im sorry, please enter a Y for yes, or a N for no." << endl;
         }
-        }while(choice != 'Y' && choice != 'N');
+        }while(!start);
         ///END OF VALIDATION///
 
+    int ones, twos, threes, fours, fives, sixes;
     while (play)
     {
 
@@ -131,34 +158,38 @@ int main()
 
         do
         {
-            redo1 = askReroll(1);
-            redo2 = askReroll(2);
-            redo3 = askReroll(3);
-            redo4 = askReroll(4);
-            redo5 = askReroll(5);
+            std::string diceList = askReroll();
 
-            if (redo1)
+            redo1 = diceList[0];
+            redo2 = diceList[1];
+            redo3 = diceList[2];
+            redo4 = diceList[3];
+            redo5 = diceList[4];
+
+            if (redo1 == 'Y' or redo1 == 'y')
             {
                 die[0] = rollDie();
             }
-            if (redo2)
+            if (redo2 == 'Y' or redo2 == 'y')
             {
                 die[1] = rollDie();
             }
-            if (redo3)
+            if (redo3 == 'Y' or redo3 == 'y')
             {
                 die[2] = rollDie();
             }
-            if (redo4)
+            if (redo4 == 'Y' or redo4 == 'y')
             {
                 die[3] = rollDie();
             }
-            if (redo5)
+            if (redo5 == 'Y' or redo5 == 'y')
             {
                 die[4] = rollDie();
             }
+
             printRoll(die);
             round++;
+
         } while ((redo1 || redo2 || redo3 || redo4 || redo5) && round < 3);
 
         ones = tabulateDice(1, die);
@@ -168,32 +199,33 @@ int main()
         fives = tabulateDice(5, die);
         sixes = tabulateDice(6, die);
 
+
         int scoreOption = getScoreOption(onesScore, twosScore, threesScore, foursScore,
                                          fivesScore, sixesScore, threeOfAKind,
                                          fourOfAKind, fullHouse, smallStraight,
                                          largeStraight, yahtzee, chance);
 
-        /*switch (scoreOption)
+        switch (scoreOption)
         {
             case ONES:
-                onesScore = scoreOnes(ones, twos, threes, fours, fives, sixes);
+                onesScore = ones;
                 break;
             case TWOS:
-                twosScore = scoreTwos(ones, twos, threes, fours, fives, sixes);
+                twosScore = twos * 2;
                 break;
             case THREES:
-                threesScore = scoreThrees(ones, twos, threes, fours, fives, sixes);
+                threesScore = threes * 3;
                 break;
             case FOURS:
-                foursScore = scoreFours(ones, twos, threes, fours, fives, sixes);
+                foursScore = fours * 4;
                 break;
             case FIVES:
-                fivesScore = scoreFives(ones, twos, threes, fours, fives, sixes);
+                fivesScore = fives * 5;
                 break;
             case SIXES:
-                sixesScore = scoreSixes(ones, twos, threes, fours, fives, sixes);
+                sixesScore = sixes * 6;
                 break;
-            case THREE_OF_A_KIND:
+            /*case THREE_OF_A_KIND:
                 threeOfAKind = scoreThreeOfAKind(ones, twos, threes, fours, fives, sixes);
                 break;
             case FOUR_OF_A_KIND:
@@ -213,8 +245,8 @@ int main()
                 break;
             case CHANCE:
                 chance = scoreChance(ones, twos, threes, fours, fives, sixes);
-                break;
-        }*/
+                break;*/
+        }
 
         printScore(onesScore, twosScore, threesScore, foursScore, fivesScore, sixesScore,
                    threeOfAKind, fourOfAKind, fullHouse, smallStraight, largeStraight, yahtzee, chance);
@@ -262,24 +294,40 @@ void printRoll(int dice[])
  * 'Y' 'y' and 'N' 'n'.
  *
  *********************************************************/
-bool askReroll(int n)
+std::string askReroll()
 {
-    char ch;
-    while (true)
+    bool validator = false;
+    std::string choice = "";
+    while (validator == false)
     {
-        cout << "Would you like to reroll die " << n << "? (Y/N) ";
-        cin >> ch;
-        switch (toupper(ch))
+        cout << "Would you like to reroll dice\n";
+        cout << "Type (Y for Yes and N for No) in the format ***** for dice 12345\n";
+        cout << "(for example YYNNY, changes dice 1,2 and 5)\n\n";
+        cin >> choice;
+
+        validator = true;
+
+        for(unsigned int i = 0; i < choice.length(); i++)
         {
-            case 'Y':
-                return true;
-            case 'N':
-                return false;
-            default:
-                cout << "Invalid response" << endl;
+        if ( (choice[i] != 'N') && (choice[i] != 'n') && (choice[i] != 'Y') && (choice[i] != 'y') ) {validator = false;}
         }
+
+        if (validator == false){std::cout << "Please insert valid letters. 'Y' or 'N'.\n";}
+
+        if (choice.length() > 5)
+            {
+                std::cout << endl << "*Too many letters*";
+                validator = false;
+            }
+
+        if (choice.length() < 5)
+            {
+                std::cout << endl << "*Too few letters*";
+                validator = false;
+            }
     }
 
+    return choice;
 }
 
 
@@ -485,24 +533,30 @@ int rollDie()
     return rand() % SIDES +1;
 }
 
-/**
-* Score Functions
-* scoreOnes
-*/
-int scoreOnes(int ones,int twos,int threes,int fours ,int fives,int sixes)
-{
-    return ones;
-}
-int scoreTwos(int ones,int twos,int threes,int fours ,int fives,int sixes)
-{
-    return twos * 2;
-}
-int scoreThrees(int ones,int twos,int threes,int fours ,int fives,int sixes)
-{
-    return threes * 3;
-}
+/**************************************
+Marian's comment goes here
+*///////////////////////////////////////
 
 /*******************************
  * This is a very important message
  * About Nothing at all! Don't Learn to much!
  ******************************/
+
+/*********************
+ *
+ * Comment by Nathan Johnson for GIT Assignment
+ *
+ * *******************
+*/
+/************************************
+*	Someone already did my fix,
+*	Kyle Seidlitz for GIT assignment
+*******************************************/
+
+/**Comment by Allison Calhoun*/
+
+/**Comment by Marti Garcia
+Not versed in C++, so wasn't sure what to comment on.
+Syntax for Switch statements is C++ are very similar to C#. */
+
+/**Comment by Robert Wright*/
