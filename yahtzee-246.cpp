@@ -20,7 +20,6 @@
  *
  * Edit:Coral Breding
  ** the game was on an endless loop of play
-<<<<<<< HEAD
  * added a exit condition 2/10/14
 
  * Edit: Duncan M. Luiten
@@ -28,7 +27,7 @@
     instead of inserting a Y or N for each line.
     You insert 5 Y or N's in a row. like this: YNNYY.
     that will change values 1, 4, and 5.
-=======
+
  ** added a exit condition 2/10/14
  *
  * Edit: Nathan Healea Modified (12:53 2/10/2014)
@@ -38,13 +37,13 @@
  ** Worked on scoreOnes(int ones,int twos,int threes,int fours ,int fives,int sixes)
  ** Worked on scoreTwos(int ones,int twos,int threes,int fours ,int fives,int sixes)
  ** Worked on scoreThrees(int ones,int twos,int threes,int fours ,int fives,int sixes)
-
-
- **
+ *
  * Edit:Matthew Bernik
  ** There was no validation for the players playing choice
  ** Added Validation loop 2/10/14
->>>>>>> fc6fe411e7fddf76db91468823d93516f89e91fb
+*
+*Edit: Alex Crippen
+**Cleaned up file, added note
  *******************************/
 
 // TODO: switch to using arrays for scores
@@ -512,8 +511,6 @@ int rollDie()
 {
     return rand() % SIDES +1;
 }
-///<<<<<<< HEAD
-///<<<<<<< HEAD
 
 /**
 * Score Functions
@@ -536,16 +533,10 @@ int scoreThrees(int ones,int twos,int threes,int fours ,int fives,int sixes)
  * This is a very important message
  * About Nothing at all! Don't Learn to much!
  ******************************/
-///=======
-///=======
-///>>>>>>> f82f435abdac8c7d79c424c661ecee7134b2e929
+
 /*********************
  *
  * Comment by Nathan Johnson for GIT Assignment
  *
  * *******************
-<<<<<<< HEAD
->>>>>>> f82f435abdac8c7d79c424c661ecee7134b2e929
-=======
->>>>>>> f82f435abdac8c7d79c424c661ecee7134b2e929
 */
