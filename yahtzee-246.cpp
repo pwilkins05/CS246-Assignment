@@ -70,7 +70,7 @@ enum Category { ONES = 1, TWOS, THREES, FOURS, FIVES, SIXES, THREE_OF_A_KIND,
 
 int main()
 {
-
+	///FIXED///
     int die[5];
     bool redo1, redo2, redo3, redo4, redo5;
 
