@@ -16,13 +16,14 @@ namespace RaffleDraw
 {
      public class TicketList
     {
-        private List<Ticket> tickets;
+	///BUG///
+        private List<Ticet> tickets;
 
             public delegate void ChangeHandler(TicketList tickets);
             public event ChangeHandler Changed;
 
 
-            public Ticket this[int i]//indexer
+            public Ticket this[int i] //indexer
             {
                 get
                 {
@@ -47,7 +48,8 @@ namespace RaffleDraw
 
             public override string ToString()
             {
-                string str = "";
+		///BUG///
+                string str;
                 foreach (Ticket c in tickets)
                 {
                     str += (c.ToString() + "\n");
@@ -99,7 +101,8 @@ namespace RaffleDraw
             public static TicketList
             operator +(TicketList cl, Ticket c)
             {
-                cl.Add(c);
+	///BUG///
+                cl.Add(C);
                 return cl;
             }
 
