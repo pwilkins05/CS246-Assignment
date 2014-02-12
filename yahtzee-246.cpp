@@ -92,7 +92,7 @@ int main()
     int die[5];
     char redo1, redo2, redo3, redo4, redo5;
 
-    int ones, twos, threes, fours, fives, sixes;
+
 
     int onesScore, twosScore, threesScore, foursScore, fivesScore, sixesScore;
     int threeOfAKind;
@@ -119,13 +119,13 @@ int main()
      do{
 
         cin >> choice;
-        if(choice == 'Y' or choice == 'y')
+        if (choice == 'Y' or choice == 'y')
         {
             start = true;
             play = true;
             cout << "Play " << endl;
         }
-        else if(choice == 'N' or choice ==  'n')
+        else if (choice == 'N' or choice ==  'n')
         {
             play = false;
             start = true;
@@ -138,6 +138,7 @@ int main()
         }while(!start);
         ///END OF VALIDATION///
 
+    int ones, twos, threes, fours, fives, sixes;
     while (play)
     {
 
@@ -300,7 +301,7 @@ std::string askReroll()
 
         validator = true;
 
-        for(int i = 0; i < choice.length(); i++)
+        for(unsigned int i = 0; i < choice.length(); i++)
         {
         if ( (choice[i] != 'N') && (choice[i] != 'n') && (choice[i] != 'Y') && (choice[i] != 'y') ) {validator = false;}
         }
@@ -557,3 +558,8 @@ Marian's comment goes here
  *
  * *******************
 */
+/************************************
+*	Someone already did my fix, gratz :D
+*	Kyle Seidlitz for GIT assignment
+*******************************************/
+
