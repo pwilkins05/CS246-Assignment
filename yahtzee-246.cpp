@@ -225,10 +225,10 @@ int main()
             case SIXES:
                 sixesScore = sixes * 6;
                 break;
-            /*case THREE_OF_A_KIND:
+            case THREE_OF_A_KIND:
                 threeOfAKind = scoreThreeOfAKind(ones, twos, threes, fours, fives, sixes);
                 break;
-            case FOUR_OF_A_KIND:
+            /*case FOUR_OF_A_KIND:
                 fourOfAKind = scoreFourOfAKind(ones, twos, threes, fours, fives, sixes);
                 break;
             case FULL_HOUSE:
@@ -560,3 +560,7 @@ Not versed in C++, so wasn't sure what to comment on.
 Syntax for Switch statements is C++ are very similar to C#. */
 
 /**Comment by Robert Wright*/
+
+/**Comment by Matt Prenevost
+    Removed comment tick from Three_Of_A_Kind function**/
+
